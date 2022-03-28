@@ -9,6 +9,8 @@ Use this template for all your "from scratch" deliverables. To start, simply run
 
 ## Available Scripts
 
+Next thing up is making these dogs clickable, so we can view/edit them
+
 In the project directory, you can run:
 
 ### `npm start`
