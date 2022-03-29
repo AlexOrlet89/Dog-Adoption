@@ -16,3 +16,8 @@ export async function getDogById(id) {
   // console.log(response);
   return checkError(response);
 }
+export async function updateDog(id, name, breed, bio, image, age) {
+  const response = await client.from('dogs').update({ name, breed, bio, image, age }).eq('id', id);
+  // console.log(response);
+  return checkError(response);
+}

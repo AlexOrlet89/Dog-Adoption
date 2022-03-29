@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { createDog, getDogById } from '../services/DogList';
+import { createDog, getDogById, updateDog } from '../services/DogList';
 
 export default function DogForm({
   name,
@@ -22,11 +22,11 @@ export default function DogForm({
         onSubmit={(e) => {
           e.preventDefault();
           if (params.id) {
-            //updateDog
+            updateDog(params.id, name, breed, bio, image, age);
           }
 
           createDog(name, breed, bio, image, age);
-          console.log('clicked');
+          console.log('clicked'); // also needs redirect
         }}
       >
         <label>

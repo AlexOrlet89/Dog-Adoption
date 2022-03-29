@@ -9,7 +9,7 @@ export default function EditDogDetail() {
   const [breed, setBreed] = useState('');
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');
-  const [age, setAge] = useState(null);
+  const [age, setAge] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
