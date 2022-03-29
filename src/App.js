@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import DogDetail from './views/DogDetail';
+import EditDogDetail from './views/EditDogDetail';
 import Home from './views/Home';
 import New from './views/New';
 
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/dog/:id">
             <DogDetail />
+          </Route>
+          <Route exact path="/dog/:id/edit">
+            <EditDogDetail />
           </Route>
         </Switch>
       </div>
