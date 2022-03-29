@@ -21,3 +21,8 @@ export async function updateDog(id, name, breed, bio, image, age) {
   // console.log(response);
   return checkError(response);
 }
+export async function deleteDog(id) {
+  const response = await client.from('dogs').delete().eq('id', id);
+  // console.log(response);
+  return checkError(response);
+}

@@ -29,7 +29,7 @@ export default function DogForm({
           } else {
             createDog(name, breed, bio, image, age);
             console.log('clicked'); // also needs redirect
-            history.push(`/dog/${params.id}`);
+            history.push(`/`);
           }
         }}
       >
