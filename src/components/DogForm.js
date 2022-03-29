@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { createDog, getDogById, updateDog } from '../services/DogList';
 
@@ -15,6 +16,7 @@ export default function DogForm({
   setAge,
 }) {
   const params = useParams();
+  const history = useHistory();
 
   return (
     <div>
@@ -23,10 +25,12 @@ export default function DogForm({
           e.preventDefault();
           if (params.id) {
             updateDog(params.id, name, breed, bio, image, age);
+            history.push(`/dog/${params.id}`);
+          } else {
+            createDog(name, breed, bio, image, age);
+            console.log('clicked'); // also needs redirect
+            history.push(`/dog/${params.id}`);
           }
-
-          createDog(name, breed, bio, image, age);
-          console.log('clicked'); // also needs redirect
         }}
       >
         <label>
