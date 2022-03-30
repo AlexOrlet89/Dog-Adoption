@@ -40,6 +40,13 @@ export default function DogDetail() {
         >
           Edit
         </button>
+        <button
+          onClick={() => {
+            history.push(`/`);
+          }}
+        >
+          Back Home
+        </button>
         <div></div>
       </div>
     </div>

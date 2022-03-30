@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import DogForm from '../components/DogForm';
 
 export default function New() {
@@ -7,6 +8,7 @@ export default function New() {
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');
   const [age, setAge] = useState(null);
+  const history = useHistory();
   return (
     <div>
       <DogForm
@@ -21,6 +23,13 @@ export default function New() {
         age={age}
         setAge={setAge}
       />
+      <button
+        onClick={() => {
+          history.push(`/`);
+        }}
+      >
+        Back Home
+      </button>
     </div>
   );
 }

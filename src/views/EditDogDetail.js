@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import DogForm from '../components/DogForm';
 import { getDogById } from '../services/DogList';
@@ -10,6 +11,7 @@ export default function EditDogDetail() {
   const [bio, setBio] = useState('');
   const [image, setImage] = useState('');
   const [age, setAge] = useState('');
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +39,13 @@ export default function EditDogDetail() {
         age={age}
         setAge={setAge}
       />
+      <button
+        onClick={() => {
+          history.push(`/`);
+        }}
+      >
+        Back Home
+      </button>
     </div>
   );
 }
