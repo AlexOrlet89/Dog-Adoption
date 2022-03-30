@@ -9,6 +9,8 @@ export default function Navbar() {
       <br></br>
       <NavLink to="/">Home</NavLink>
       <br></br>
+      <NavLink to="/signin">SignIn</NavLink>
+      <br></br>
     </div>
   );
 }

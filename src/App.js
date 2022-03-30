@@ -6,6 +6,7 @@ import DogDetail from './views/DogDetail';
 import EditDogDetail from './views/EditDogDetail';
 import Home from './views/Home';
 import New from './views/New';
+import SignIn from './views/SignIn';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/dog/:id/edit">
             <EditDogDetail />
+          </Route>
+          <Route exact path="/signin">
+            <SignIn />
           </Route>
         </Switch>
       </div>
