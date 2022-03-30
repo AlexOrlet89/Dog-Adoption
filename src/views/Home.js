@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchDogs } from '../services/DogList';
 import Navbar from './Navbar';
 
-export default function Home() {
+export default function Home({ currentUser }) {
   const [dogs, setDogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,8 +21,8 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
-      <div>ADOPT A DOG TODAY!</div>
+      <Navbar currentUser={currentUser} />
+      {currentUser ? <div>Welcome, Admin {currentUser}</div> : <div>ADOPT A DOG TODAY!</div>}
       <div>
         {dogs.map((dog) => (
           <Link key={dog.id} to={`/dog/${dog.id}`}>

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { deleteDog, getDogById } from '../services/DogList';
 import Navbar from './Navbar';
 
-export default function DogDetail() {
+export default function DogDetail({ currentUser }) {
   const params = useParams();
   const [dog, setDog] = useState({});
   const [loading, setLoading] = useState(true);
@@ -35,15 +35,23 @@ export default function DogDetail() {
       <div>
         <button
           onClick={() => {
-            deleteDog(dog.id);
-            history.push(`/`);
+            if (currentUser) {
+              deleteDog(dog.id);
+              history.push(`/`);
+            } else {
+              window.alert(`no! you're not admin!`);
+            }
           }}
         >
           Delete
         </button>
         <button
           onClick={() => {
-            history.push(`/dog/${dog.id}/edit`);
+            if (currentUser) {
+              history.push(`/dog/${dog.id}/edit`);
+            } else {
+              window.alert(`no! you're not admin!`);
+            }
           }}
         >
           Edit

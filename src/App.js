@@ -20,16 +20,16 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home currentUser={currentUser} />
           </Route>
           <Route exact path="/new">
-            {currentUser ? <New /> : <Redirect to="/auth" />}
+            {currentUser ? <New /> : <Redirect to="/signin" />}
           </Route>
           <Route exact path="/dog/:id">
-            <DogDetail />
+            <DogDetail currentUser={currentUser} />
           </Route>
           <Route exact path="/dog/:id/edit">
-            <EditDogDetail />
+            <EditDogDetail currentUser={currentUser} />
           </Route>
           <Route exact path="/signin">
             <Auth setCurrentUser={setCurrentUser} />
