@@ -33,6 +33,13 @@ export default function DogDetail() {
         >
           Delete
         </button>
+        <button
+          onClick={() => {
+            history.push(`/dog/${dog.id}/edit`);
+          }}
+        >
+          Edit
+        </button>
         <div></div>
       </div>
     </div>
