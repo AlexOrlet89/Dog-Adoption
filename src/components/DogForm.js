@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { createDog, getDogById, updateDog } from '../services/DogList';
+import { createDog, updateDog } from '../services/DogList';
 
 export default function DogForm({
   name,
@@ -27,8 +27,8 @@ export default function DogForm({
             updateDog(params.id, name, breed, bio, image, age);
             history.push(`/dog/${params.id}`);
           } else {
+            window.alert(`${name}!! Welcome to the Alchemy Adoption Center`);
             createDog(name, breed, bio, image, age);
-            console.log('clicked'); // also needs redirect
             history.push(`/`);
           }
         }}
