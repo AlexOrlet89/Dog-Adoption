@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import DogForm from '../components/DogForm';
 import { getDogById } from '../services/DogList';
+import Navbar from './Navbar';
 
 export default function EditDogDetail() {
   const params = useParams();
@@ -23,10 +24,11 @@ export default function EditDogDetail() {
       setAge(data.age);
     };
     fetchData();
-  }, []);
+  }, [params.id]);
 
   return (
     <div>
+      <Navbar />
       <DogForm
         name={name}
         setName={setName}

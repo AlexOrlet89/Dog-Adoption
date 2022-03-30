@@ -2,26 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import { fetchDogs } from '../services/DogList';
+import Navbar from './Navbar';
 
 export default function Home() {
   const [dogs, setDogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchDogs();
       setDogs(data);
+      setLoading(false);
     };
     fetchData();
   }, []);
 
-  console.log(dogs);
+  if (loading) return <div className="loader"> Loading Doggies</div>;
 
   return (
     <div>
+      <Navbar />
       <div>ADOPT A DOG TODAY!</div>
-      <Link to="/new">
-        <p>Admin click here to add new dog</p>
-      </Link>
       <div>
         {dogs.map((dog) => (
           <Link key={dog.id} to={`/dog/${dog.id}`}>
