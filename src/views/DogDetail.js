@@ -22,6 +22,14 @@ export default function DogDetail({ currentUser }) {
 
   if (loading) return <div className="loader"> Loading Dog</div>;
 
+  const EditHandler = async () => {
+    history.push(`/dog/${dog.id}/edit`);
+  };
+  const DeleteHandler = async () => {
+    await deleteDog(dog.id);
+    history.push(`/`);
+  };
+
   return (
     <div>
       <Navbar />
@@ -33,6 +41,8 @@ export default function DogDetail({ currentUser }) {
       <h2>{dog.bio}</h2>
       <h2>{dog.image}</h2>
       <div>
+        {currentUser && <button onClick={EditHandler}>Edit</button>}
+        {currentUser && <button onClick={DeleteHandler}>Delete</button>}
         {/* <button
           onClick={() => {
             if (currentUser) {
