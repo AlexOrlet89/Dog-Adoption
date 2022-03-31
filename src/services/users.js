@@ -18,9 +18,9 @@ export function redirectIfLoggedIn() {
 
 export async function signupUser({ email, password }) {
   const response = await client.auth.signUp({ email, password });
-  console.log('email password object', email, password);
+  // console.log('email password object', email, password);
 
-  console.log('sign up sent', response.user);
+  // console.log('sign up sent', response.user);
 
   return response.user;
 }

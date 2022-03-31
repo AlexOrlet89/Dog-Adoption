@@ -14,7 +14,7 @@ import New from './views/New';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
-  console.log('current user:', currentUser);
+  // console.log('current user:', currentUser);
 
   return (
     <BrowserRouter>

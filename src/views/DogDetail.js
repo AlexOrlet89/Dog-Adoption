@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { deleteDog, getDogById } from '../services/DogList';
-import Navbar from './Navbar';
 
 export default function DogDetail({ currentUser }) {
   const params = useParams();
@@ -32,9 +31,6 @@ export default function DogDetail({ currentUser }) {
 
   return (
     <div>
-      <Navbar />
-      <p></p>
-      <p></p>
       <h2>{dog.name}</h2>
       <h2>{dog.breed}</h2>
       <h2>{dog.age}</h2>

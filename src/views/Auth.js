@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { signInUser, signupUser } from '../services/users';
+import { signupUser } from '../services/users';
 
 export default function Auth({ setCurrentUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
   const history = useHistory();
 
@@ -14,10 +13,10 @@ export default function Auth({ setCurrentUser }) {
     try {
       const resp = await signupUser({ email, password });
       setCurrentUser(resp.email);
-      console.log(resp.email);
+      // console.log(resp.email);
       history.push('/');
     } catch (e) {
-      setError('something went wrong!');
+      window.alert('something went wrong!');
     }
   };
 

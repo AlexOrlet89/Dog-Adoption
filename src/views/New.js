@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import DogForm from '../components/DogForm';
 
 export default function New() {

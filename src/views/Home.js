@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import { fetchDogs } from '../services/DogList';
-import Navbar from './Navbar';
 
 export default function Home({ currentUser }) {
   const [dogs, setDogs] = useState([]);
@@ -11,7 +10,7 @@ export default function Home({ currentUser }) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchDogs();
-      console.log(data);
+      // console.log(data);
       setDogs(data);
       setLoading(false);
     };
