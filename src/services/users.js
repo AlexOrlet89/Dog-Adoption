@@ -1,7 +1,7 @@
 import { client } from './client';
 
 export function getUser() {
-  return client.auth.session() && client.auth.session().user;
+  return client.auth.session() && client.auth.session().user.email;
 }
 
 export function checkAuth() {

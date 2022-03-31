@@ -33,7 +33,7 @@ export default function DogDetail({ currentUser }) {
       <h2>{dog.bio}</h2>
       <h2>{dog.image}</h2>
       <div>
-        <button
+        {/* <button
           onClick={() => {
             if (currentUser) {
               deleteDog(dog.id);
@@ -44,8 +44,8 @@ export default function DogDetail({ currentUser }) {
           }}
         >
           Delete
-        </button>
-        <button
+        </button> */}
+        {/* <button
           onClick={() => {
             if (currentUser) {
               history.push(`/dog/${dog.id}/edit`);
@@ -55,7 +55,7 @@ export default function DogDetail({ currentUser }) {
           }}
         >
           Edit
-        </button>
+        </button> */}
         <button
           onClick={() => {
             history.push(`/`);

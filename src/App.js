@@ -9,6 +9,7 @@ import Auth from './views/Auth';
 import DogDetail from './views/DogDetail';
 import EditDogDetail from './views/EditDogDetail';
 import Home from './views/Home';
+import Navbar from './views/Navbar';
 import New from './views/New';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Navbar currentUser={currentUser} />
         <Switch>
           <Route exact path="/">
             <Home currentUser={currentUser} />
@@ -29,7 +31,7 @@ function App() {
             <DogDetail currentUser={currentUser} />
           </Route>
           <Route exact path="/dog/:id/edit">
-            <EditDogDetail currentUser={currentUser} />
+            {currentUser ? <EditDogDetail /> : <Redirect to="/signin" />}
           </Route>
           <Route exact path="/signin">
             <Auth setCurrentUser={setCurrentUser} />

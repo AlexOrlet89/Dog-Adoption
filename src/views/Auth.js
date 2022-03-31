@@ -14,6 +14,7 @@ export default function Auth({ setCurrentUser }) {
     try {
       const resp = await signupUser({ email, password });
       setCurrentUser(resp.email);
+      console.log(resp.email);
       history.push('/');
     } catch (e) {
       setError('something went wrong!');

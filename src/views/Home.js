@@ -11,6 +11,7 @@ export default function Home({ currentUser }) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchDogs();
+      console.log(data);
       setDogs(data);
       setLoading(false);
     };
@@ -21,8 +22,9 @@ export default function Home({ currentUser }) {
 
   return (
     <div>
-      <Navbar currentUser={currentUser} />
-      {currentUser ? <div>Welcome, Admin {currentUser}</div> : <div>ADOPT A DOG TODAY!</div>}
+      <div>
+        {currentUser ? <h1>{`Welcome, Admin ${currentUser}`}</h1> : <h1>ADOPT A DOG TODAY!</h1>}
+      </div>
       <div>
         {dogs.map((dog) => (
           <Link key={dog.id} to={`/dog/${dog.id}`}>

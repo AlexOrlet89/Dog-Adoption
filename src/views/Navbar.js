@@ -10,7 +10,7 @@ export default function Navbar({ currentUser }) {
   return (
     <div>
       {' '}
-      <NavLink to="/new">Admin</NavLink>
+      {currentUser ? <NavLink to="/new">Admin</NavLink> : <h2>ALCHEMY ADOPTION CENTER</h2>}
       <br></br>
       <NavLink to="/">Home</NavLink>
       <br></br>
