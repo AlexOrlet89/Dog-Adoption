@@ -18,21 +18,21 @@ export default function DogForm({
   const params = useParams();
   const history = useHistory();
 
+  const formSubmitter = async (e) => {
+    e.preventDefault();
+    if (params.id) {
+      updateDog(params.id, name, breed, bio, image, age);
+      history.push(`/dog/${params.id}`);
+    } else {
+      window.alert(`${name}!! Welcome to the Alchemy Adoption Center`);
+      createDog(name, breed, bio, image, age);
+      history.push(`/`);
+    }
+  };
+
   return (
     <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (params.id) {
-            updateDog(params.id, name, breed, bio, image, age);
-            history.push(`/dog/${params.id}`);
-          } else {
-            window.alert(`${name}!! Welcome to the Alchemy Adoption Center`);
-            createDog(name, breed, bio, image, age);
-            history.push(`/`);
-          }
-        }}
-      >
+      <form onSubmit={formSubmitter}>
         <label>
           Name:
           <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />

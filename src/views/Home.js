@@ -16,7 +16,7 @@ export default function Home({ currentUser }) {
       setLoading(false);
     };
     fetchData();
-  }, [dogs]);
+  }, []);
 
   if (loading) return <div className="loader"> Loading Doggies</div>;
 
