@@ -8,6 +8,8 @@ export default function Auth({ setCurrentUser }) {
 
   const history = useHistory();
 
+  //comment
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
